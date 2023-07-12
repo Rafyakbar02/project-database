@@ -1,10 +1,13 @@
 import React from "react";
 import Profile from "./Profile";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav className="bg-white w-full p-4 flex flex-row justify-between items-center shadow">
-      <h1 className="text-black text-xl font-bold">project database</h1>
+      <Link href="/">
+        <h1 className="text-black text-xl font-bold">project database</h1>
+      </Link>
       <Profile />
     </nav>
   );
