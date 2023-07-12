@@ -1,9 +1,11 @@
 import React from "react";
+import Profile from "./Profile";
 
 const Navbar = () => {
   return (
-    <nav className="h-16 bg-white w-full">
-      <h1 className="text-sm text-black">Test</h1>
+    <nav className="bg-white w-full p-4 flex flex-row justify-between items-center shadow">
+      <h1 className="text-black text-xl font-bold">project database</h1>
+      <Profile />
     </nav>
   );
 };
