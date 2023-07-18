@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white w-full p-4 flex flex-row justify-between items-center shadow">
       <Link href="/">
-        <h1 className="text-black text-xl font-bold">project database</h1>
+        <h1 className="text-black text-xl font-bold">Executive Dashboard</h1>
       </Link>
       <Profile />
     </nav>
