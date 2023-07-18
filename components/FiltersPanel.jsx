@@ -4,7 +4,7 @@ import { produk, sektor, tahapan, pemilik } from "@/constants";
 
 const FiltersPanel = () => {
   return (
-    <section className="p-4 flex gap-4">
+    <section className="p-4 flex gap-4 overflow-x-auto">
       <Filter type={produk} name={"Produk"} />
       <Filter type={sektor} name={"Sektor"} />
       <Filter type={tahapan} name={"Tahapan"} />

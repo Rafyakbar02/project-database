@@ -59,8 +59,17 @@ const Filter = ({ type, name }) => {
           {type.map((choice, index) => (
             <li>
               <div className="flex items-center">
-                <input type="checkbox" value="" />
-                <label className="ml-2">{choice.title}</label>
+                <input
+                  type="checkbox"
+                  value=""
+                  id={`${choice.title}${index}`}
+                />
+                <label
+                  for={`${choice.title}${index}`}
+                  className="ml-2 select-none"
+                >
+                  {choice.title}
+                </label>
               </div>
             </li>
           ))}
