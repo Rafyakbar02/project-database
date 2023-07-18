@@ -3,24 +3,19 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const Filter = ({ type, name }) => {
-  const [toggle, setToggle] = useState(false);
+  const [open, setOpen] = useState(false);
 
   {
     /* Function to close dropdown when another element outside the dropdown is clicked */
   }
-  const ref = useRef(null);
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setToggle(false);
-    }
-  };
+  const buttonRef = useRef();
+  const dropdownRef = useRef();
 
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
-    return () => {
-      document.removeEventListener("click", handleClickOutside, true);
-    };
-  }, []);
+  window.addEventListener("click", (e) => {
+    if (e.target !== dropdownRef.current && e.target !== buttonRef.current) {
+      setOpen(false);
+    }
+  });
   {
     /* End of function*/
   }
@@ -29,7 +24,8 @@ const Filter = ({ type, name }) => {
     <div>
       <button
         className="bg-gray-100 rounded-2xl px-4 py-2.5 text-xs font-semibold shadow inline-flex items-center gap-1"
-        onClick={() => setToggle((prev) => !prev)}
+        onClick={() => setOpen((prev) => !prev)}
+        ref={buttonRef}
       >
         {name}
         <svg
@@ -38,6 +34,7 @@ const Filter = ({ type, name }) => {
           viewBox="0 0 512 512"
           height="18px"
           width="18px"
+          className="pointer-events-none"
         >
           <path
             fill="none"
@@ -49,32 +46,32 @@ const Filter = ({ type, name }) => {
           />
         </svg>
       </button>
-      <div
-        ref={ref}
-        className={`${
-          toggle ? "" : "hidden"
-        } bg-gray-100 rounded-lg shadow text-xs absolute mt-2`}
-      >
-        <ul className="space-y-3 p-3">
-          {type.map((choice, index) => (
-            <li>
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  value=""
-                  id={`${choice.title}${index}`}
-                />
-                <label
-                  for={`${choice.title}${index}`}
-                  className="ml-2 select-none"
-                >
-                  {choice.title}
-                </label>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {open && (
+        <div
+          ref={dropdownRef}
+          className="bg-gray-100 rounded-lg shadow text-xs absolute mt-2"
+        >
+          <ul className="space-y-3 p-3">
+            {type.map((choice, index) => (
+              <li>
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    value=""
+                    id={`${choice.title}${index}`}
+                  />
+                  <label
+                    for={`${choice.title}${index}`}
+                    className="ml-2 select-none"
+                  >
+                    {choice.title}
+                  </label>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
