@@ -4,28 +4,22 @@ import React, { useEffect, useRef, useState } from "react";
 
 const Filter = ({ type, name }) => {
   const [open, setOpen] = useState(false);
+  const [check, setCheck] = useState(false);
+  let dropRef = useRef();
 
-  {
-    /* Function to close dropdown when another element outside the dropdown is clicked */
-  }
-  const buttonRef = useRef();
-  const dropdownRef = useRef();
-
-  window.addEventListener("click", (e) => {
-    if (e.target !== dropdownRef.current && e.target !== buttonRef.current) {
-      setOpen(false);
-    }
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+      if (!dropRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    });
   });
-  {
-    /* End of function*/
-  }
 
   return (
-    <div>
+    <div ref={dropRef}>
       <button
         className="bg-gray-100 rounded-2xl px-4 py-2.5 text-xs font-semibold shadow inline-flex items-center gap-1"
         onClick={() => setOpen((prev) => !prev)}
-        ref={buttonRef}
       >
         {name}
         <svg
@@ -46,32 +40,36 @@ const Filter = ({ type, name }) => {
           />
         </svg>
       </button>
-      {open && (
-        <div
-          ref={dropdownRef}
-          className="bg-gray-100 rounded-lg shadow text-xs absolute mt-2"
-        >
-          <ul className="space-y-3 p-3">
-            {type.map((choice, index) => (
-              <li>
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    value=""
-                    id={`${choice.title}${index}`}
-                  />
-                  <label
-                    for={`${choice.title}${index}`}
-                    className="ml-2 select-none"
-                  >
-                    {choice.title}
-                  </label>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div
+        className={`${
+          open ? "" : "hidden"
+        } bg-gray-100 rounded-lg shadow text-xs absolute mt-2`}
+      >
+        <input
+          type="text"
+          placeholder="Select one or more"
+          className="p-2 m-2 mb-0 rounded-md"
+        />
+        <ul className="space-y-1 p-2">
+          {type.map((choice, index) => (
+            <li className="hover:bg-gray-300 p-1 rounded-sm">
+              <button className="flex items-center">
+                <input
+                  type="checkbox"
+                  id={`${choice.title}${index}`}
+                  className="cursor-pointer"
+                />
+                <label
+                  for={`${choice.title}${index}`}
+                  className="ml-2 select-none cursor-pointer"
+                >
+                  {choice.title}
+                </label>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
