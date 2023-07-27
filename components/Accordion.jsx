@@ -22,7 +22,7 @@ const Accordion = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={"mx-7 md:mx-20"}>
+    <div className={"mx-4 md:mx-20"}>
       <div
         className={
           "rounded-lg grid grid-cols-12 p-5 cursor-pointer z-10 " +
