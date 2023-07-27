@@ -1,68 +1,68 @@
 export const produk = [
   {
-    id: "produk-1",
-    title: "KPBU",
+    value: "produk-1",
+    label: "KPBU",
   },
   {
-    id: "produk-2",
-    title: "Non-KPBU",
+    value: "produk-2",
+    label: "Non-KPBU",
   },
   {
-    id: "produk-3",
-    title: "PDF",
+    value: "produk-3",
+    label: "PDF",
   },
 ];
 
 export const sektor = [
   {
-    id: "sektor-1",
-    title: "Jalan",
+    value: "sektor-1",
+    label: "Jalan",
   },
   {
-    id: "sektor-2",
-    title: "Pariwisata",
+    value: "sektor-2",
+    label: "Pariwisata",
   },
   {
-    id: "sektor-3",
-    title: "Telekomunikasi",
+    value: "sektor-3",
+    label: "Telekomunikasi",
   },
   {
-    id: "sektor-4",
-    title: "Ketenagalistrikan",
+    value: "sektor-4",
+    label: "Ketenagalistrikan",
   },
   {
-    id: "sektor-5",
-    title: "Transportasi",
+    value: "sektor-5",
+    label: "Transportasi",
   },
 ];
 
 export const tahapan = [
   {
-    id: "tahapan-1",
-    title: "Planning",
+    value: "tahapan-1",
+    label: "Planning",
   },
   {
-    id: "tahapan-2",
-    title: "Signing",
+    value: "tahapan-2",
+    label: "Signing",
   },
   {
-    id: "tahapan-3",
-    title: "Finished",
+    value: "tahapan-3",
+    label: "Finished",
   },
 ];
 
 export const pemilik = [
   {
-    id: "pemilik-1",
-    title: "Kementerian PUPR",
+    value: "pemilik-1",
+    label: "Kementerian PUPR",
   },
   {
-    id: "pemilik-2",
-    title: "Kementerian Pendidikan",
+    value: "pemilik-2",
+    label: "Kementerian Pendidikan",
   },
   {
-    id: "pemilik-3",
-    title: "Kementerian Keuangan",
+    value: "pemilik-3",
+    label: "Kementerian Keuangan",
   },
 ];
 

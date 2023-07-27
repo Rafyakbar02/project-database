@@ -1,11 +1,21 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Select from "react-select";
 
 const Filter = ({ type, name }) => {
   const [open, setOpen] = useState(false);
-  const [check, setCheck] = useState(false);
+  const [userChoice, setUserChoice] = useState([]);
   let dropRef = useRef();
+
+  const handleChange = (e) => {
+    setUserChoice(Array.isArray(e) ? e.map((x) => x.label) : []);
+    console.log(userChoice);
+  };
+
+  const truncate = (str) => {
+    return str.length > 20 ? str.substring(0, 19) + "..." : str;
+  };
 
   useEffect(() => {
     document.addEventListener("mousedown", (e) => {
@@ -18,10 +28,14 @@ const Filter = ({ type, name }) => {
   return (
     <div ref={dropRef}>
       <button
-        className="bg-gray-100 rounded-2xl px-4 py-2.5 text-xs font-semibold shadow inline-flex items-center gap-1"
+        className={`rounded-2xl px-4 py-2.5 text-xs font-medium shadow inline-flex items-center gap-1 truncate ${
+          userChoice.length > 0 ? "bg-blue-500 text-white" : "bg-gray-100"
+        }`}
         onClick={() => setOpen((prev) => !prev)}
       >
-        {name}
+        {userChoice.length > 0
+          ? `${name}: ${truncate(userChoice.join(", "))}`
+          : name}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="ionicon"
@@ -43,32 +57,9 @@ const Filter = ({ type, name }) => {
       <div
         className={`${
           open ? "" : "hidden"
-        } bg-gray-100 rounded-lg shadow text-xs absolute mt-2`}
+        } bg-gray-100 rounded-lg shadow text-xs absolute mt-2 w-64 p-2`}
       >
-        <input
-          type="text"
-          placeholder="Select one or more"
-          className="p-2 m-2 mb-0 rounded-md"
-        />
-        <ul className="space-y-1 p-2">
-          {type.map((choice, index) => (
-            <li className="p-1 rounded-sm">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id={`${choice.title}${index}`}
-                  className="cursor-pointer"
-                />
-                <label
-                  for={`${choice.title}${index}`}
-                  className="ml-2 select-none cursor-pointer"
-                >
-                  {choice.title}
-                </label>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <Select options={type} isMulti onChange={handleChange} />
       </div>
     </div>
   );
