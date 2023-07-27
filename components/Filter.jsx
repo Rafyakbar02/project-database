@@ -52,8 +52,8 @@ const Filter = ({ type, name }) => {
         />
         <ul className="space-y-1 p-2">
           {type.map((choice, index) => (
-            <li className="hover:bg-gray-300 p-1 rounded-sm">
-              <button className="flex items-center">
+            <li className="p-1 rounded-sm">
+              <div className="flex items-center">
                 <input
                   type="checkbox"
                   id={`${choice.title}${index}`}
@@ -65,7 +65,7 @@ const Filter = ({ type, name }) => {
                 >
                   {choice.title}
                 </label>
-              </button>
+              </div>
             </li>
           ))}
         </ul>
