@@ -1,74 +1,80 @@
-export const produk = [
+export const product = [
   {
-    value: "produk-1",
+    value: "product-1",
     label: "KPBU",
   },
   {
-    value: "produk-2",
+    value: "product-2",
     label: "Non-KPBU",
   },
   {
-    value: "produk-3",
+    value: "product-3",
     label: "PDF",
   },
 ];
 
-export const sektor = [
+export const sector = [
   {
-    value: "sektor-1",
-    label: "Jalan",
+    value: "sector-1",
+    label: "Road",
   },
   {
-    value: "sektor-2",
-    label: "Pariwisata",
+    value: "sector-2",
+    label: "Tourism",
   },
   {
-    value: "sektor-3",
-    label: "Telekomunikasi",
+    value: "sector-3",
+    label: "Telecommunication",
   },
   {
-    value: "sektor-4",
-    label: "Ketenagalistrikan",
+    value: "sector-4",
+    label: "Electricity",
   },
   {
-    value: "sektor-5",
-    label: "Transportasi",
+    value: "sector-5",
+    label: "Transportation",
   },
 ];
 
-export const tahapan = [
+export const phase = [
   {
-    value: "tahapan-1",
+    value: "phase-1",
     label: "Planning",
   },
   {
-    value: "tahapan-2",
+    value: "phase-2",
     label: "Signing",
   },
   {
-    value: "tahapan-3",
+    value: "phase-3",
     label: "Finished",
   },
 ];
 
-export const pemilik = [
+export const pjkp = [
   {
-    value: "pemilik-1",
-    label: "Kementerian PUPR",
+    value: "pjkp-1",
+    label: "Minister For Public Works and Human Settlements",
   },
   {
-    value: "pemilik-2",
-    label: "Kementerian Pendidikan",
+    value: "pjkp-2",
+    label: "Madiun Regency Government",
   },
   {
-    value: "pemilik-3",
-    label: "Kementerian Keuangan",
+    value: "pjkp-3",
+    label: "Ministry of Telecommunication and Informatics",
+  },
+  {
+    value: "pjkp-4",
+    label: "PT Perusahaan Listrik Negara (PLN)",
   },
 ];
 
 export const projects = [
   {
+    id: "project-1",
     title: "Patimban Access Toll Road",
+    sector: "Road",
     division: "Minister For Public Works and Human Settlements",
     totalInvestment: "5,02 Trillion (IDR)",
     signingDate: "24 Jan 2023",
@@ -76,7 +82,9 @@ export const projects = [
     effectiveDate: "1 Feb 2023",
   },
   {
+    id: "project-2",
     title: "Madiun Street Lighting Equipment Project",
+    sector: "Energy Conservation",
     division: "Madiun Regency Government",
     totalInvestment: "100 Billion (IDR)",
     signingDate: "20 Sep 2022",
@@ -84,7 +92,9 @@ export const projects = [
     effectiveDate: "1 Oct 2022",
   },
   {
+    id: "project-3",
     title: "Palapa Ring Project - Western Package",
+    sector: "Telecommunication",
     division: "Ministry of Telecommunication and Informatics",
     totalInvestment: "1,2 Trillion (IDR)",
     signingDate: "29 Feb 2016",
@@ -92,11 +102,33 @@ export const projects = [
     effectiveDate: "10 Nov 2016",
   },
   {
+    id: "project-4",
     title: "Central Java Power Plant Project",
+    sector: "Electricity",
     division: "PT Perusahaan Listrik Negara (PLN)",
     totalInvestment: "61,4 Trillion (IDR)",
     signingDate: "06 Oct 2011",
     totalExposure: "-",
     effectiveDate: "03 Jun 2016",
+  },
+  {
+    id: "project-5",
+    title: "Callender Hamilton (CH) Bridge",
+    sector: "Road",
+    division: "Minister For Public Works and Human Settlements",
+    totalInvestment: "2,4 Trillion (IDR)",
+    signingDate: "06 Dec 2021",
+    totalExposure: "-",
+    effectiveDate: "-",
+  },
+  {
+    id: "project-6",
+    title: "PPP Project for Jatiluhur Water Supply System 1",
+    sector: "Water",
+    division: "Minister For Public Works and Human Settlements",
+    totalInvestment: "1,675 Trillion (IDR)",
+    signingDate: "19 Feb 2021",
+    totalExposure: "-",
+    effectiveDate: "-",
   },
 ];

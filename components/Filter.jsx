@@ -19,7 +19,7 @@ const Filter = ({ type, name }) => {
 
   useEffect(() => {
     document.addEventListener("mousedown", (e) => {
-      if (!dropRef.current.contains(e.target)) {
+      if (!dropRef?.current?.contains(e.target)) {
         setOpen(false);
       }
     });
