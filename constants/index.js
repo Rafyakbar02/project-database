@@ -51,6 +51,17 @@ export const phase = [
   },
 ];
 
+export const priority = [
+  {
+    value: "priority-1",
+    label: "Shortlist",
+  },
+  {
+    value: "priority-2",
+    label: "Longlist",
+  },
+];
+
 export const pjkp = [
   {
     value: "pjkp-1",

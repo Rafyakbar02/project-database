@@ -1,30 +1,49 @@
 "use client";
 
 import Accordion from "@/components/Accordion";
-import React, { useState } from "react";
+import Modal from "@/components/Modal";
+import Panel from "@/components/Panel";
+import NotFound from "@/components/NotFound";
+import React, { useState, useEffect } from "react";
 import { projects } from "@/constants";
-import FiltersPanel from "@/components/FiltersPanel";
 
 function Details() {
   const [query, setQuery] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [filteredProjects, setFilteredProjects] = useState(projects);
+
+  const handleOnClose = () => setShowModal(false);
+  const handleQuery = (e) => {
+    setQuery(e.target.value);
+  };
+  const handleClear = () => {
+    setQuery("");
+  };
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  useEffect(() => {
+    setFilteredProjects(
+      projects.filter(
+        (p) =>
+          p.title.toLowerCase().includes(query.toLowerCase()) ||
+          p.division.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  });
 
   return (
     <div>
-      {/* <FiltersPanel /> */}
       <div className="flex flex-col gap-4 my-4">
-        <input
-          type="text"
-          placeholder="Search Project or Project Owner"
-          className="bg-gray-100 hover:bg-gray-200 mb-0 md:mx-20 mx-4 px-4 py-2 rounded-lg"
-          onChange={(e) => setQuery(e.target.value.toLowerCase())}
+        <Panel
+          query={query}
+          handleClear={handleClear}
+          handleQuery={handleQuery}
+          handleShowModal={handleShowModal}
         />
-        {projects
+        {filteredProjects
           .sort((a, b) => (a.title > b.title ? 1 : -1))
-          .filter(
-            (p) =>
-              p.title.toLowerCase().includes(query) ||
-              p.division.toLowerCase().includes(query)
-          )
           .map((p, i) => (
             <Accordion
               i={i + 1}
@@ -37,7 +56,9 @@ function Details() {
               effectiveDate={p.effectiveDate}
             />
           ))}
+        {filteredProjects.length == 0 && <NotFound query={query} />}
       </div>
+      <Modal showModal={showModal} onClose={handleOnClose} />
     </div>
   );
 }
