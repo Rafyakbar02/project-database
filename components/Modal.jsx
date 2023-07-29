@@ -41,11 +41,14 @@ const Modal = ({ showModal, onClose }) => {
             <hr className="h-px w-full bg-gray-200"></hr>
             <div className="h-full overflow-y-auto">
               {keys.map((key, i) => (
-                <div className="m-8 mb-14">
+                <div className="m-8 mb-14" key={`${titles}${i}`}>
                   <h2 className="text-2xl font-semibold mb-6">{titles[i]}</h2>
                   <div className="flex flex-col md:grid gap-y-8 md:grid-cols-2">
-                    {key.map((choice) => (
-                      <Checkbox choice={choice} />
+                    {key.map((choice, index) => (
+                      <Checkbox
+                        key={`${titles}${i}-${index}`}
+                        choice={choice}
+                      />
                     ))}
                   </div>
                 </div>

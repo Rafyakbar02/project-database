@@ -13,7 +13,7 @@ const NotFound = ({ query }) => {
           d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
           fill="none"
           stroke="currentColor"
-          strokeMterlimit="10"
+          strokeMiterlimit="10"
           strokeWidth="32"
         />
         <path

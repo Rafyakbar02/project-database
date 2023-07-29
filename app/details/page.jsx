@@ -15,6 +15,7 @@ function Details() {
   const handleOnClose = () => setShowModal(false);
   const handleQuery = (e) => {
     setQuery(e.target.value);
+    showResult(e.target.value);
   };
   const handleClear = () => {
     setQuery("");
@@ -22,16 +23,14 @@ function Details() {
   const handleShowModal = () => {
     setShowModal(true);
   };
-
-  useEffect(() => {
-    setFilteredProjects(
-      projects.filter(
-        (p) =>
-          p.title.toLowerCase().includes(query.toLowerCase()) ||
-          p.division.toLowerCase().includes(query.toLowerCase())
-      )
+  const showResult = (value) => {
+    const result = projects.filter(
+      (p) =>
+        p.title.toLowerCase().includes(value.toLowerCase()) ||
+        p.division.toLowerCase().includes(value.toLowerCase())
     );
-  });
+    setFilteredProjects(result);
+  };
 
   return (
     <div>
