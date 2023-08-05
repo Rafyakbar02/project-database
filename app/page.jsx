@@ -1,5 +1,4 @@
 import InfoCard from "@/components/InfoCard";
-import FiltersPanel from "@/components/FiltersPanel";
 
 export default function Home() {
   return (

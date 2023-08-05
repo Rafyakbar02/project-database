@@ -1,20 +1,45 @@
 import { product, sector, phase, pjkp, priority } from "@/constants";
+import { useState } from "react";
 
 const titles = ["Product", "Sector", "Priority", "Phase", "PJKP"];
-const keys = [product, sector, priority, phase, pjkp];
+const categories = [product, sector, priority, phase, pjkp];
 
-const Checkbox = ({ choice }) => {
+const Checkbox = ({
+  categoryIndex,
+  subCategory,
+  subCategoryIndex,
+  handleCheck,
+}) => {
   return (
     <div className="flex gap-4 ml-4 items-center">
-      <input type="checkbox" name="" id={choice.value} className="scale-125" />
-      <label htmlFor={choice.value} className="">
-        {choice.label}
+      <input
+        type="checkbox"
+        value={subCategory.label}
+        id={subCategory.value}
+        className="scale-125"
+        onChange={(e) => handleCheck(e, categoryIndex, subCategoryIndex)}
+        checked={subCategory.checked}
+      />
+      <label htmlFor={subCategory.value} className="">
+        {subCategory.label}
       </label>
     </div>
   );
 };
 
-const Modal = ({ showModal, onClose }) => {
+const Modal = ({
+  checkList,
+  showModal,
+  setShowModal,
+  handleCheck,
+  resetCheckList,
+  submitFilter,
+}) => {
+  const handleSubmit = () => {
+    submitFilter();
+    setShowModal(false);
+  };
+
   return (
     <>
       {showModal && (
@@ -26,7 +51,7 @@ const Modal = ({ showModal, onClose }) => {
                 className="cursor-pointer hover:bg-gray-200 rounded-full p-1"
                 viewBox="0 0 512 512"
                 height="35px"
-                onClick={onClose}
+                onClick={() => setShowModal(false)}
               >
                 <path
                   fill="none"
@@ -40,14 +65,17 @@ const Modal = ({ showModal, onClose }) => {
             </div>
             <hr className="h-px w-full bg-gray-200"></hr>
             <div className="h-full overflow-y-auto">
-              {keys.map((key, i) => (
-                <div className="m-8 mb-14" key={`${titles}${i}`}>
+              {checkList.map((category, i) => (
+                <div className="m-8 mb-14" key={`${titles[i]}${i}`}>
                   <h2 className="text-2xl font-semibold mb-6">{titles[i]}</h2>
                   <div className="flex flex-col md:grid gap-y-8 md:grid-cols-2">
-                    {key.map((choice, index) => (
+                    {category.map((subCategory, index) => (
                       <Checkbox
-                        key={`${titles}${i}-${index}`}
-                        choice={choice}
+                        key={`${subCategory}-${index}`}
+                        categoryIndex={i}
+                        subCategory={subCategory}
+                        subCategoryIndex={index}
+                        handleCheck={handleCheck}
                       />
                     ))}
                   </div>
@@ -56,11 +84,17 @@ const Modal = ({ showModal, onClose }) => {
             </div>
             <hr className="h-px w-full bg-gray-200"></hr>
             <div className="flex justify-between py-4 px-6 items-center">
-              <h3 className="cursor-pointer underline font-medium hover:bg-gray-200 py-2 px-4 rounded-xl">
+              <button
+                className="cursor-pointer underline font-medium hover:bg-gray-200 py-2 px-4 rounded-xl"
+                onClick={resetCheckList}
+              >
                 Clear All
-              </h3>
-              <button className="bg-green-500 hover:bg-green-600  py-2 px-4 text-white font-semibold rounded-xl">
-                Show Projects
+              </button>
+              <button
+                className="bg-green-500 hover:bg-green-600  py-2 px-4 text-white font-semibold rounded-xl"
+                onClick={handleSubmit}
+              >
+                {`Show Projects`}
               </button>
             </div>
           </div>

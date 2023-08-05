@@ -1,6 +1,12 @@
 import React from "react";
 
-const Panel = ({ query, handleClear, handleQuery, handleShowModal }) => {
+const Panel = ({
+  query,
+  handleClear,
+  handleQuery,
+  handleShowModal,
+  numOfFilters,
+}) => {
   return (
     <div className="flex mb-0 md:mx-20 mx-4 gap-4">
       <div className="absolute my-2.5 mx-4">
@@ -73,6 +79,11 @@ const Panel = ({ query, handleClear, handleQuery, handleShowModal }) => {
           />
         </svg>
         <h3 className="hidden sm:block font-medium">Filters</h3>
+        {numOfFilters > 0 ? (
+          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-[77px] right-[68px]">
+            {numOfFilters}
+          </div>
+        ) : null}
       </button>
     </div>
   );
