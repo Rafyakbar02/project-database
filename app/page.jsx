@@ -1,16 +1,13 @@
 import InfoCard from "@/components/InfoCard";
-import FiltersPanel from "@/components/FiltersPanel";
 
 export default function Home() {
   return (
     <div>
-      <FiltersPanel />
-      <section className="p-4 flex flex-row gap-4 overflow-x-auto">
+      <section className="grid grid-cols-2 sm:flex sm:flex-row gap-2 sm:gap-4 m-4 md:mx-20">
         <InfoCard number={141} type={"Total Projects"} />
         <InfoCard number={33} type={"Signed Projects"} />
-        <InfoCard number={108} type={"Projects In-progress"} />
-        <InfoCard number={"344.44T"} type={"Total Investment Amount (Rp.)"} />
-        <InfoCard number={"77.25T"} type={"Total Exposure Amount (Rp.)"} />
+        <InfoCard number={58} type={"Longlist Projects"} />
+        <InfoCard number={50} type={"Shortlist Projects"} />
       </section>
     </div>
   );
