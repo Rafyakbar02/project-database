@@ -4,8 +4,11 @@ import Accordion from "@/components/Accordion";
 import Modal from "@/components/Modal";
 import Panel from "@/components/Panel";
 import NotFound from "@/components/NotFound";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { projects, product, sector, phase, pjkp, priority } from "@/constants";
+import { motion } from "framer-motion";
+import Offcanvas from "@/components/Offcanvas";
+import Button from "@/components/Button";
 
 const categories = [product, sector, priority, phase, pjkp];
 
@@ -13,6 +16,7 @@ function Details() {
     const [query, setQuery] = useState("");
     const [checkList, setCheckList] = useState(categories);
     const [showModal, setShowModal] = useState(false);
+    const [showOffcanvas, setShowOffcanvas] = useState(false);
     const [filteredProjects, setFilteredProjects] = useState(projects);
     const [numOfFilters, setNumOfFilters] = useState(0);
 
@@ -83,6 +87,10 @@ function Details() {
         return selected;
     };
 
+    const handleViewProject = () => {
+        setShowOffcanvas((p) => !p);
+    };
+
     return (
         <div>
             <div className="flex flex-col gap-4 my-4">
@@ -110,6 +118,7 @@ function Details() {
                             signingDate={p.signingDate}
                             totalExposure={p.totalExposure}
                             effectiveDate={p.effectiveDate}
+                            handleViewProject={handleViewProject}
                         />
                     ))}
                 {showResult(query).length == 0 ? (
@@ -124,6 +133,10 @@ function Details() {
                 handleCheck={handleCheck}
                 resetCheckList={resetCheckList}
                 submitFilter={submitFilter}
+            />
+            <Offcanvas
+                show={showOffcanvas}
+                handleClose={() => setShowOffcanvas(false)}
             />
         </div>
     );
