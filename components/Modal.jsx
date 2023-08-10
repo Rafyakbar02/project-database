@@ -56,15 +56,25 @@ const Modal = ({
             {showModal && (
                 <motion.div
                     className={
-                        "fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50"
+                        "fixed inset-0 bg-black bg-opacity-30 flex " +
+                        "justify-center items-center z-50"
                     }
                     variants={modalVariants}
                     initial="hide"
                     animate="show"
                     exit="hide"
                 >
-                    <div className="bg-white h-5/6 w-5/6 sm:w-4/5 sm:max-w-3xl rounded-3xl flex flex-col">
-                        <div className="flex justify-between items-center py-4 px-6">
+                    <div
+                        className={
+                            "bg-white h-5/6 w-5/6 sm:w-4/5 sm:max-w-3xl " +
+                            "rounded-3xl flex flex-col"
+                        }
+                    >
+                        <div
+                            className={
+                                "flex justify-between items-center py-4 px-6"
+                            }
+                        >
                             <h2 className="text-2xl font-semibold">{title}</h2>
                             <CloseButton
                                 handleClose={() => setShowModal(false)}
@@ -80,7 +90,12 @@ const Modal = ({
                                     <h2 className="text-2xl font-semibold mb-6">
                                         {titles[i]}
                                     </h2>
-                                    <div className="flex flex-col md:grid gap-y-8 md:grid-cols-2">
+                                    <div
+                                        className={
+                                            "flex flex-col gap-y-8 " +
+                                            "md:grid md:grid-cols-2"
+                                        }
+                                    >
                                         {category.map((subCategory, index) => (
                                             <Checkbox
                                                 key={`${subCategory}-${index}`}
@@ -95,9 +110,16 @@ const Modal = ({
                             ))}
                         </div>
                         <hr className="h-px w-full bg-gray-200"></hr>
-                        <div className="flex justify-between py-4 px-6 items-center">
+                        <div
+                            className={
+                                "flex justify-between py-4 px-6 items-center"
+                            }
+                        >
                             <button
-                                className="cursor-pointer underline font-medium hover:bg-gray-200 py-2 px-4 rounded-xl"
+                                className={
+                                    "cursor-pointer underline font-medium " +
+                                    "hover:bg-gray-200 py-2 px-4 rounded-xl"
+                                }
                                 onClick={resetCheckList}
                             >
                                 Clear All
