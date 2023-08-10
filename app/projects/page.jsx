@@ -118,7 +118,7 @@ function Details() {
                         .map((p, i) => (
                             <Accordion
                                 i={i + 1}
-                                key={p.id}
+                                id={p.id}
                                 title={p.title}
                                 division={p.division}
                                 totalInvestment={p.totalInvestment}

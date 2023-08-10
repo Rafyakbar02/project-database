@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Button from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
 import SVG from "./SVG";
+import Link from "next/link";
 
 const Segment = ({ title, content }) => {
     return (
@@ -15,6 +16,7 @@ const Segment = ({ title, content }) => {
 
 const Accordion = ({
     i,
+    id,
     title,
     division,
     totalInvestment,
@@ -31,7 +33,7 @@ const Accordion = ({
     };
 
     return (
-        <div className={"mx-4 md:mx-20 z-10"}>
+        <div className={"mx-4 md:mx-20 z-10"} key={id}>
             <div
                 className={
                     "rounded-lg grid grid-cols-12 p-5 cursor-pointer z-10 " +
@@ -97,12 +99,14 @@ const Accordion = ({
                                 "col-span-2 p-3 h-full flex items-center z-20"
                             }
                         >
-                            <Button
-                                type="button"
-                                label="View Project"
-                                size="sm"
-                                onClick={handleViewProject}
-                            />
+                            <Link href={`/projects/${id}`}>
+                                <Button
+                                    type="button"
+                                    label="View Project"
+                                    size="sm"
+                                    // onClick={handleViewProject}
+                                />
+                            </Link>
                         </div>
                     </motion.div>
                 )}
