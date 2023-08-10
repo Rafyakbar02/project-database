@@ -60,7 +60,7 @@ const Panel = ({
         value={query}
       />
       <button
-        className="bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 flex gap-1 items-center"
+        className="bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 flex gap-1 items-center relative"
         onClick={handleShowModal}
       >
         <svg
@@ -80,7 +80,7 @@ const Panel = ({
         </svg>
         <h3 className="hidden sm:block font-medium">Filters</h3>
         {numOfFilters > 0 ? (
-          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-[77px] right-[68px]">
+          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">
             {numOfFilters}
           </div>
         ) : null}
