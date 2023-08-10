@@ -43,7 +43,7 @@ const Profile = () => {
                         exit="hide"
                     >
                         <Link
-                            href="/details"
+                            href="/projects"
                             className="p-3 hover:bg-gray-200"
                             onClick={() => setOpen(false)}
                         >

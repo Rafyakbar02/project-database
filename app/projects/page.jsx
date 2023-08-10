@@ -4,11 +4,9 @@ import Accordion from "@/components/Accordion";
 import Modal from "@/components/Modal";
 import Panel from "@/components/Panel";
 import NotFound from "@/components/NotFound";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { projects, product, sector, phase, pjkp, priority } from "@/constants";
-import { motion } from "framer-motion";
 import Offcanvas from "@/components/Offcanvas";
-import Button from "@/components/Button";
 
 const categories = [product, sector, priority, phase, pjkp];
 
@@ -88,12 +86,20 @@ function Details() {
     };
 
     const handleViewProject = () => {
-        setShowOffcanvas((p) => !p);
+        setShowOffcanvas(true);
+        if (typeof window != "undefined" && window.document) {
+            document.body.style.overflow = "hidden";
+        }
+    };
+
+    const handleCloseOffcanvas = () => {
+        setShowOffcanvas(false);
+        document.body.style.overflow = "unset";
     };
 
     return (
         <div>
-            <div className="flex flex-col gap-4 my-4">
+            <div className="flex flex-col gap-4 my-4 mb-20">
                 <Panel
                     query={query}
                     handleClear={handleClear}
@@ -106,21 +112,23 @@ function Details() {
                         showResult(query).length
                     } projects`}</h5>
                 ) : null}
-                {showResult(query)
-                    .sort((a, b) => (a.title > b.title ? 1 : -1))
-                    .map((p, i) => (
-                        <Accordion
-                            i={i + 1}
-                            key={p.id}
-                            title={p.title}
-                            division={p.division}
-                            totalInvestment={p.totalInvestment}
-                            signingDate={p.signingDate}
-                            totalExposure={p.totalExposure}
-                            effectiveDate={p.effectiveDate}
-                            handleViewProject={handleViewProject}
-                        />
-                    ))}
+                <div className="flex flex-col gap-4">
+                    {showResult(query)
+                        .sort((a, b) => (a.title > b.title ? 1 : -1))
+                        .map((p, i) => (
+                            <Accordion
+                                i={i + 1}
+                                key={p.id}
+                                title={p.title}
+                                division={p.division}
+                                totalInvestment={p.totalInvestment}
+                                signingDate={p.signingDate}
+                                totalExposure={p.totalExposure}
+                                effectiveDate={p.effectiveDate}
+                                handleViewProject={handleViewProject}
+                            />
+                        ))}
+                </div>
                 {showResult(query).length == 0 ? (
                     <NotFound query={query} />
                 ) : null}
@@ -136,7 +144,7 @@ function Details() {
             />
             <Offcanvas
                 show={showOffcanvas}
-                handleClose={() => setShowOffcanvas(false)}
+                handleClose={handleCloseOffcanvas}
             ></Offcanvas>
         </div>
     );
