@@ -66,7 +66,7 @@ const Modal = ({
                 >
                     <div
                         className={
-                            "bg-white h-5/6 w-5/6 sm:w-4/5 sm:max-w-3xl " +
+                            "bg-white h-2/3 md:h-5/6 w-5/6 sm:w-4/5 sm:max-w-3xl " +
                             "rounded-3xl flex flex-col"
                         }
                     >
