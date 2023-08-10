@@ -1,5 +1,8 @@
 import { product, sector, phase, pjkp, priority } from "@/constants";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import CloseButton from "./CloseButton";
+import Button from "./Button";
 
 const titles = ["Product", "Sector", "Priority", "Phase", "PJKP"];
 const categories = [product, sector, priority, phase, pjkp];
@@ -38,34 +41,34 @@ const Modal = ({
     resetCheckList,
     submitFilter,
 }) => {
+    const modalVariants = {
+        show: { opacity: 1 },
+        hide: { opacity: 0 },
+    };
+
     const handleSubmit = () => {
         submitFilter();
         setShowModal(false);
     };
 
     return (
-        <>
+        <AnimatePresence>
             {showModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50">
+                <motion.div
+                    className={
+                        "fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50"
+                    }
+                    variants={modalVariants}
+                    initial="hide"
+                    animate="show"
+                    exit="hide"
+                >
                     <div className="bg-white h-5/6 w-5/6 sm:w-4/5 sm:max-w-3xl rounded-3xl flex flex-col">
                         <div className="flex justify-between items-center py-4 px-6">
                             <h2 className="text-2xl font-semibold">{title}</h2>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="cursor-pointer hover:bg-gray-200 rounded-full p-1"
-                                viewBox="0 0 512 512"
-                                height="35px"
-                                onClick={() => setShowModal(false)}
-                            >
-                                <path
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="32"
-                                    d="M368 368L144 144M368 144L144 368"
-                                />
-                            </svg>
+                            <CloseButton
+                                handleClose={() => setShowModal(false)}
+                            />
                         </div>
                         <hr className="h-px w-full bg-gray-200"></hr>
                         <div className="h-full overflow-y-auto">
@@ -99,17 +102,17 @@ const Modal = ({
                             >
                                 Clear All
                             </button>
-                            <button
-                                className="bg-green-500 hover:bg-green-600  py-2 px-4 text-white font-semibold rounded-xl"
+                            <Button
+                                type="submit"
+                                label="Show Projects"
+                                size="sm"
                                 onClick={handleSubmit}
-                            >
-                                {`Show Projects`}
-                            </button>
+                            />
                         </div>
                     </div>
-                </div>
+                </motion.div>
             )}
-        </>
+        </AnimatePresence>
     );
 };
 

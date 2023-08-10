@@ -137,7 +137,7 @@ function Details() {
             <Offcanvas
                 show={showOffcanvas}
                 handleClose={() => setShowOffcanvas(false)}
-            />
+            ></Offcanvas>
         </div>
     );
 }
