@@ -100,7 +100,7 @@ export const pjkp = [
 
 export const projects = [
     {
-        id: "project-1",
+        id: "patimban-access-toll-road",
         title: "Patimban Access Toll Road",
         sector: "Road",
         division: "Minister For Public Works and Human Settlements",
@@ -113,7 +113,7 @@ export const projects = [
         effectiveDate: "1 Feb 2023",
     },
     {
-        id: "project-2",
+        id: "madiun-street-lighting-equipment-project",
         title: "Madiun Street Lighting Equipment Project",
         sector: "Energy Conservation",
         division: "Madiun Regency Government",
@@ -126,7 +126,7 @@ export const projects = [
         effectiveDate: "1 Oct 2022",
     },
     {
-        id: "project-3",
+        id: "palapa-ring-project-western-package",
         title: "Palapa Ring Project - Western Package",
         sector: "Telecommunication",
         division: "Ministry of Telecommunication and Informatics",
@@ -139,7 +139,7 @@ export const projects = [
         effectiveDate: "10 Nov 2016",
     },
     {
-        id: "project-4",
+        id: "central-java-power-plant-project",
         title: "Central Java Power Plant Project",
         sector: "Electricity",
         division: "PT Perusahaan Listrik Negara (PLN)",
@@ -152,7 +152,7 @@ export const projects = [
         effectiveDate: "03 Jun 2016",
     },
     {
-        id: "project-5",
+        id: "callender-hamilton-bridge",
         title: "Callender Hamilton (CH) Bridge",
         sector: "Road",
         division: "Minister For Public Works and Human Settlements",
@@ -165,7 +165,7 @@ export const projects = [
         effectiveDate: "-",
     },
     {
-        id: "project-6",
+        id: "ppp-project-for-jatiluhur-water-supper-system-1",
         title: "PPP Project for Jatiluhur Water Supply System 1",
         sector: "Water",
         division: "Minister For Public Works and Human Settlements",
