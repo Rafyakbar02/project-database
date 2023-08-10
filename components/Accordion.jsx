@@ -42,7 +42,7 @@ const Accordion = ({
                 <div className={"col-span-1 flex justify-center items-center"}>
                     {i}
                 </div>
-                <div className={"col-span-10 ps-5 md:ps-0"}>
+                <div className={"col-span-10 ps-4 pe-4 md:ps-0"}>
                     <p className="font-semibold">{title}</p>
                     <p className="font-light">{division}</p>
                 </div>
