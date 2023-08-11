@@ -5,7 +5,7 @@ import SearchPanel from "./components/SearchPanel";
 import NotFound from "./components/NotFound";
 import React, { useState } from "react";
 import { projects, product, sector, phase, pjkp, priority } from "@/constants";
-import InfoCard from "../../components/InfoCard";
+import InfoCard from "../global-components/InfoCard";
 import FiltersModal from "./components/FiltersModal";
 
 const categories = [product, sector, priority, phase, pjkp];
