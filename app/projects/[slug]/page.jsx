@@ -22,11 +22,11 @@ function Details({ params }) {
             </div>
             <div className="flex flex-col gap-20 lg:gap-0 w-full md:px-14 lg:grid lg:grid-cols-2 lg:w-5/6">
                 <div className="flex flex-col">
-                    <img
+                    {/* <img
                         className="w-full object-cover"
                         src="http://ptpii.co.id/cfind/source/thumb/images/cover_w511_h420_patimban1.jpg"
                         alt="Tol"
-                    />
+                    /> */}
 
                     <div
                         className={
@@ -95,7 +95,7 @@ function Details({ params }) {
                     </div>
                 </div>
                 <div>
-                    <div className="w-full flex flex-col gap-5 leading-relaxed px-10 lg:py-8">
+                    <div className="w-full flex flex-col gap-5 leading-relaxed px-10 ">
                         <h4 className="text-lg uppercase text-teal-600">
                             Energy Conservation
                         </h4>
