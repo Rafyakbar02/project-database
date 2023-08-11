@@ -4,6 +4,7 @@ import Button from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
 import SVG from "./SVG";
 import Link from "next/link";
+import { formatToIDR } from "../constants";
 
 const Segment = ({ title, content }) => {
     return (
@@ -23,7 +24,6 @@ const Accordion = ({
     signingDate,
     totalExposure,
     effectiveDate,
-    handleViewProject,
 }) => {
     const [open, setOpen] = useState(false);
 
@@ -77,26 +77,27 @@ const Accordion = ({
                         <div className={"col-span-5"}>
                             <Segment
                                 title="Total Investment"
-                                content={totalInvestment}
+                                content={formatToIDR(totalInvestment)}
                             />
                             <Segment
                                 title="Signing Date"
                                 content={signingDate}
                             />
                         </div>
-                        <div className={"col-span-4"}>
+                        <div className={"col-span-6 lg:col-span-4"}>
                             <Segment
                                 title="Total Exposure"
-                                content={totalExposure}
+                                content={formatToIDR(totalExposure)}
                             />
                             <Segment
                                 title="Tanggal Efektif Penjaminan"
                                 content={effectiveDate}
                             />
                         </div>
+                        <div className="col-span-1 lg:hidden"></div>
                         <div
                             className={
-                                "col-span-2 p-3 h-full flex items-center z-20"
+                                "col-span-11 lg:col-span-2 p-3 h-full flex items-center z-20"
                             }
                         >
                             <Link href={`/projects/${id}`}>
@@ -104,7 +105,6 @@ const Accordion = ({
                                     type="button"
                                     label="View Project"
                                     size="sm"
-                                    // onClick={handleViewProject}
                                 />
                             </Link>
                         </div>

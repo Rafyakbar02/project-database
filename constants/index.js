@@ -1,3 +1,21 @@
+/*
+ * Formats a number to IDR currency.
+ *
+ * Utilizes an Intl.NumberFormat object that is able to format a given number to
+ * IDR currency. Numbers will be grouped by the thousands and prefixed with an 
+ * Rp symbol.
+ * 
+ * @param {number}  num     A number value to be formatted.
+ * 
+ * @return {string} A string representation of the formatted number.
+ */
+export const formatToIDR = (num) => {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+    }).format(num);
+};
+
 export const product = [
     {
         value: "product-1",
@@ -105,11 +123,11 @@ export const projects = [
         sector: "Road",
         division: "Minister For Public Works and Human Settlements",
         product: "Non-KPBU",
-        totalInvestment: "5,02 Trillion (IDR)",
+        totalInvestment: 139685379136,
         phase: "Signing",
         priority: "Shortlist",
         signingDate: "24 Jan 2023",
-        totalExposure: "1,10 Trillion (IDR)",
+        totalExposure: 2450000000000,
         effectiveDate: "1 Feb 2023",
     },
     {
@@ -118,11 +136,11 @@ export const projects = [
         sector: "Energy Conservation",
         division: "Madiun Regency Government",
         product: "KPBU",
-        totalInvestment: "100 Billion (IDR)",
+        totalInvestment: 6359024000000,
         phase: "Signing",
         priority: "Longlist",
         signingDate: "20 Sep 2022",
-        totalExposure: "10 Billion (IDR)",
+        totalExposure: 56230000000000,
         effectiveDate: "1 Oct 2022",
     },
     {
@@ -131,11 +149,11 @@ export const projects = [
         sector: "Telecommunication",
         division: "Ministry of Telecommunication and Informatics",
         product: "KPBU",
-        totalInvestment: "1,2 Trillion (IDR)",
+        totalInvestment: 11889299512102,
         phase: "Finished",
         priority: "",
         signingDate: "29 Feb 2016",
-        totalExposure: "14,9 Trillion (IDR)",
+        totalExposure: 61200000000000,
         effectiveDate: "10 Nov 2016",
     },
     {
@@ -144,11 +162,11 @@ export const projects = [
         sector: "Electricity",
         division: "PT Perusahaan Listrik Negara (PLN)",
         product: "PDF",
-        totalInvestment: "61,4 Trillion (IDR)",
+        totalInvestment: 16233409000000,
         phase: "Finished",
         priority: "",
         signingDate: "06 Oct 2011",
-        totalExposure: "-",
+        totalExposure: 6000000000000,
         effectiveDate: "03 Jun 2016",
     },
     {
@@ -157,11 +175,11 @@ export const projects = [
         sector: "Road",
         division: "Minister For Public Works and Human Settlements",
         product: "PDF",
-        totalInvestment: "2,4 Trillion (IDR)",
+        totalInvestment: 14690641000000,
         phase: "Finished",
         priority: "",
         signingDate: "06 Dec 2021",
-        totalExposure: "-",
+        totalExposure: 22800000000000,
         effectiveDate: "-",
     },
     {
@@ -170,11 +188,11 @@ export const projects = [
         sector: "Water",
         division: "Minister For Public Works and Human Settlements",
         product: "KPBU",
-        totalInvestment: "1,675 Trillion (IDR)",
+        totalInvestment: 8408605000000,
         phase: "Finished",
         priority: "",
         signingDate: "19 Feb 2021",
-        totalExposure: "-",
+        totalExposure: 14300000000000,
         effectiveDate: "-",
     },
 ];

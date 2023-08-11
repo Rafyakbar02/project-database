@@ -14,7 +14,6 @@ function Details() {
     const [query, setQuery] = useState("");
     const [checkList, setCheckList] = useState(categories);
     const [showModal, setShowModal] = useState(false);
-    const [showOffcanvas, setShowOffcanvas] = useState(false);
     const [filteredProjects, setFilteredProjects] = useState(projects);
     const [numOfFilters, setNumOfFilters] = useState(0);
 
@@ -85,18 +84,6 @@ function Details() {
         return selected;
     };
 
-    const handleViewProject = () => {
-        setShowOffcanvas(true);
-        if (typeof window != "undefined" && window.document) {
-            document.body.style.overflow = "hidden";
-        }
-    };
-
-    const handleCloseOffcanvas = () => {
-        setShowOffcanvas(false);
-        document.body.style.overflow = "unset";
-    };
-
     return (
         <div>
             <div className="flex flex-col gap-4 my-4 mb-20">
@@ -125,7 +112,6 @@ function Details() {
                                 signingDate={p.signingDate}
                                 totalExposure={p.totalExposure}
                                 effectiveDate={p.effectiveDate}
-                                handleViewProject={handleViewProject}
                             />
                         ))}
                 </div>
@@ -142,10 +128,6 @@ function Details() {
                 resetCheckList={resetCheckList}
                 submitFilter={submitFilter}
             />
-            <Offcanvas
-                show={showOffcanvas}
-                handleClose={handleCloseOffcanvas}
-            ></Offcanvas>
         </div>
     );
 }
