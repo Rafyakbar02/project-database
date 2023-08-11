@@ -1,6 +1,7 @@
 import React from "react";
 import { projects } from "@/constants";
 import Link from "next/link";
+import TextButton from "../../../components/TextButton";
 
 function Details({ params }) {
     const id = params.slug;
@@ -10,14 +11,7 @@ function Details({ params }) {
         <div className="flex flex-col items-center w-full pb-20">
             <div className="w-full flex flex-start py-3 md:px-14 lg:w-5/6">
                 <Link href={"/projects"}>
-                    <button
-                        className={
-                            "cursor-pointer underline font-medium " +
-                            "hover:bg-gray-200 py-2 px-4 rounded-xl"
-                        }
-                    >
-                        Back to projects
-                    </button>
+                    <TextButton label="Back to projects" />
                 </Link>
             </div>
             <div className="flex flex-col gap-20 lg:gap-0 w-full md:px-14 lg:grid lg:grid-cols-2 lg:w-5/6">

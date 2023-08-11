@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "../../../components/Modal";
 import Button from "../../../components/Button";
+import TextButton from "../../../components/TextButton";
 
 const titles = ["Product", "Sector", "Priority", "Phase", "PJKP"];
 
@@ -8,7 +9,6 @@ function FiltersModal({
     showModalState,
     handleClose,
     checkList,
-    setShowModal,
     handleCheck,
     resetCheckList,
     submitFilter,
@@ -70,15 +70,7 @@ function FiltersModal({
 
         return (
             <>
-                <button
-                    className={
-                        "cursor-pointer underline font-medium " +
-                        "hover:bg-gray-200 py-2 px-4 rounded-xl"
-                    }
-                    onClick={resetCheckList}
-                >
-                    Clear All
-                </button>
+                <TextButton label="Clear All" onClick={resetCheckList} />
                 <Button
                     type="submit"
                     label="Show Projects"
