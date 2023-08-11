@@ -1,12 +1,13 @@
 "use client";
 
-import Accordion from "@/components/Accordion";
+import ProjectAccordion from "./components/ProjectAccordion";
 import Modal from "@/components/Modal";
 import Panel from "@/components/Panel";
 import NotFound from "@/components/NotFound";
 import React, { useState } from "react";
 import { projects, product, sector, phase, pjkp, priority } from "@/constants";
 import InfoCard from "../../components/InfoCard";
+import FiltersModal from "./components/FiltersModal";
 
 const categories = [product, sector, priority, phase, pjkp];
 
@@ -103,7 +104,7 @@ function Details() {
                     {showResult(query)
                         .sort((a, b) => (a.title > b.title ? 1 : -1))
                         .map((p, i) => (
-                            <Accordion
+                            <ProjectAccordion
                                 i={i + 1}
                                 id={p.id}
                                 title={p.title}
@@ -119,7 +120,11 @@ function Details() {
                     <NotFound query={query} />
                 ) : null}
             </div>
-            <div className={"hidden lg:flex flex-col items-center w-1/6 gap-5 px-10"}>
+            <div
+                className={
+                    "hidden lg:flex flex-col items-center w-1/6 gap-5 px-10"
+                }
+            >
                 <InfoCard number={5} type={"Total Projects"} />
                 <InfoCard number={5} type={"Total Projects"} />
             </div>
@@ -128,6 +133,14 @@ function Details() {
                 checkList={checkList}
                 showModal={showModal}
                 setShowModal={setShowModal}
+                handleCheck={handleCheck}
+                resetCheckList={resetCheckList}
+                submitFilter={submitFilter}
+            />
+            <FiltersModal
+                showModalState={showModal}
+                handleClose={() => setShowModal(false)}
+                checkList={checkList}
                 handleCheck={handleCheck}
                 resetCheckList={resetCheckList}
                 submitFilter={submitFilter}

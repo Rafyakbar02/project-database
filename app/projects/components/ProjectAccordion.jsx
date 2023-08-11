@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "../../../components/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import SVG from "./SVG";
+import SVG from "../../../components/SVG";
 import Link from "next/link";
-import { formatToIDR } from "../constants";
+import { formatToIDR } from "../../../constants";
 
 const Segment = ({ title, content }) => {
     return (
@@ -15,7 +15,7 @@ const Segment = ({ title, content }) => {
     );
 };
 
-const Accordion = ({
+const ProjectAccordion = ({
     i,
     id,
     title,
@@ -115,4 +115,4 @@ const Accordion = ({
     );
 };
 
-export default Accordion;
+export default ProjectAccordion;
