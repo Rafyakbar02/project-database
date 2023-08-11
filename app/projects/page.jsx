@@ -1,9 +1,8 @@
 "use client";
 
 import ProjectAccordion from "./components/ProjectAccordion";
-import Modal from "@/components/Modal";
-import Panel from "@/components/Panel";
-import NotFound from "@/components/NotFound";
+import SearchPanel from "./components/SearchPanel";
+import NotFound from "./components/NotFound";
 import React, { useState } from "react";
 import { projects, product, sector, phase, pjkp, priority } from "@/constants";
 import InfoCard from "../../components/InfoCard";
@@ -88,7 +87,7 @@ function Details() {
     return (
         <div className="flex flex-row">
             <div className="flex flex-col gap-4 mx-6 md:mx-10 lg:me-0 my-4 mb-20 w-full">
-                <Panel
+                <SearchPanel
                     query={query}
                     handleClear={handleClear}
                     handleQuery={handleQuery}
@@ -128,15 +127,6 @@ function Details() {
                 <InfoCard number={5} type={"Total Projects"} />
                 <InfoCard number={5} type={"Total Projects"} />
             </div>
-            <Modal
-                title="Filters"
-                checkList={checkList}
-                showModal={showModal}
-                setShowModal={setShowModal}
-                handleCheck={handleCheck}
-                resetCheckList={resetCheckList}
-                submitFilter={submitFilter}
-            />
             <FiltersModal
                 showModalState={showModal}
                 handleClose={() => setShowModal(false)}

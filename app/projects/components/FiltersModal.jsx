@@ -1,7 +1,7 @@
 import React from "react";
-import Modal from "../../../components/Modal";
-import Button from "../../../components/Button";
-import TextButton from "../../../components/TextButton";
+import Modal from "../../global-components/Modal";
+import Button from "../../global-components/Button";
+import TextButton from "../../global-components/TextButton";
 
 const titles = ["Product", "Sector", "Priority", "Phase", "PJKP"];
 

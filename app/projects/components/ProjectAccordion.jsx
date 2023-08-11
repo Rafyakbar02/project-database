@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import Button from "../../../components/Button";
+import Button from "../../global-components/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import SVG from "../../../components/SVG";
+import SVG from "../../global-components/SVG";
 import Link from "next/link";
 import { formatToIDR } from "../../../constants";
 

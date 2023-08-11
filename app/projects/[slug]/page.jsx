@@ -1,7 +1,7 @@
 import React from "react";
 import { projects } from "@/constants";
 import Link from "next/link";
-import TextButton from "../../../components/TextButton";
+import TextButton from "../../global-components/TextButton";
 
 function Details({ params }) {
     const id = params.slug;
