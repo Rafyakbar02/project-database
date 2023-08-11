@@ -8,7 +8,7 @@ const Panel = ({
   numOfFilters,
 }) => {
   return (
-    <div className="flex mb-0 md:mx-20 mx-4 gap-4">
+    <div className="flex gap-4">
       <div className="absolute my-2.5 mx-4">
         {query === "" ? (
           <svg

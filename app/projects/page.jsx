@@ -6,7 +6,7 @@ import Panel from "@/components/Panel";
 import NotFound from "@/components/NotFound";
 import React, { useState } from "react";
 import { projects, product, sector, phase, pjkp, priority } from "@/constants";
-import Offcanvas from "@/components/Offcanvas";
+import InfoCard from "../../components/InfoCard";
 
 const categories = [product, sector, priority, phase, pjkp];
 
@@ -85,8 +85,8 @@ function Details() {
     };
 
     return (
-        <div>
-            <div className="flex flex-col gap-4 my-4 mb-20">
+        <div className="flex flex-row">
+            <div className="flex flex-col gap-4 mx-6 md:mx-10 lg:me-0 my-4 mb-20 w-full">
                 <Panel
                     query={query}
                     handleClear={handleClear}
@@ -118,6 +118,10 @@ function Details() {
                 {showResult(query).length == 0 ? (
                     <NotFound query={query} />
                 ) : null}
+            </div>
+            <div className={"hidden lg:flex flex-col items-center w-1/6 gap-5 px-10"}>
+                <InfoCard number={5} type={"Total Projects"} />
+                <InfoCard number={5} type={"Total Projects"} />
             </div>
             <Modal
                 title="Filters"

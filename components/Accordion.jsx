@@ -33,7 +33,7 @@ const Accordion = ({
     };
 
     return (
-        <div className={"mx-4 md:mx-20 z-10"} key={id}>
+        <div className={"z-10"} key={id}>
             <div
                 className={
                     "rounded-lg grid grid-cols-12 p-5 cursor-pointer z-10 " +
