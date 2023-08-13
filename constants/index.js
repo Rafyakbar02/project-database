@@ -1,20 +1,12 @@
-/*
- * Formats a number to IDR currency.
- *
- * Utilizes an Intl.NumberFormat object that is able to format a given number to
- * IDR currency. Numbers will be grouped by the thousands and prefixed with an 
- * Rp symbol.
- * 
- * @param {number}  num     A number value to be formatted.
- * 
- * @return {string} A string representation of the formatted number.
- */
-export const formatToIDR = (num) => {
-    return new Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR",
-    }).format(num);
-};
+export const formattterIDR = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+});
+
+export const formattterCompact = new Intl.NumberFormat("id-ID", {
+    notation: "compact",
+    maximumFractionDigits: 2
+});
 
 export const product = [
     {

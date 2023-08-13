@@ -4,7 +4,7 @@ const SearchPanel = ({
     query,
     handleClear,
     handleQuery,
-    handleShowModal,
+    handleShowFiltersModal,
     numOfFilters,
 }) => {
     return (
@@ -56,12 +56,12 @@ const SearchPanel = ({
                 type="text"
                 placeholder="Search Project or PJPK"
                 className="bg-gray-100 hover:bg-gray-200 pr-4 pl-12 py-2 rounded-lg inline-block w-full"
-                onChange={(e) => handleQuery(e)}
+                onInput={handleQuery}
                 value={query}
             />
             <button
                 className="bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 flex gap-1 items-center relative"
-                onClick={handleShowModal}
+                onClick={handleShowFiltersModal}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

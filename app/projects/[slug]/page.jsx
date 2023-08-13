@@ -1,5 +1,5 @@
 import React from "react";
-import { projects } from "@/constants";
+import { projects } from "../../../constants";
 import Link from "next/link";
 import TextButton from "../../global-components/TextButton";
 

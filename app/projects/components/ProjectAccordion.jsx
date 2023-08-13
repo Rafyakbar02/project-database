@@ -4,7 +4,7 @@ import Button from "../../global-components/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import SVG from "../../global-components/SVG";
 import Link from "next/link";
-import { formatToIDR } from "../../../constants";
+import { formattterIDR } from "../../../constants";
 
 const Segment = ({ title, content }) => {
     return (
@@ -77,7 +77,7 @@ const ProjectAccordion = ({
                         <div className={"col-span-5"}>
                             <Segment
                                 title="Total Investment"
-                                content={formatToIDR(totalInvestment)}
+                                content={formattterIDR.format(totalInvestment)}
                             />
                             <Segment
                                 title="Signing Date"
@@ -87,7 +87,7 @@ const ProjectAccordion = ({
                         <div className={"col-span-6 lg:col-span-4"}>
                             <Segment
                                 title="Total Exposure"
-                                content={formatToIDR(totalExposure)}
+                                content={formattterIDR.format(totalExposure)}
                             />
                             <Segment
                                 title="Tanggal Efektif Penjaminan"

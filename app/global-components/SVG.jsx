@@ -1,5 +1,5 @@
 import React from "react";
-import { icons } from "@/constants";
+import { icons } from "../../constants";
 import { motion } from "framer-motion";
 
 function SVG({
