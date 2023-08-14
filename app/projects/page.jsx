@@ -94,7 +94,7 @@ function Details() {
   };
 
   return (
-    <div className={"flex flex-col gap-4 mx-3 md:mx-20 my-4 mb-20"}>
+    <div className={"flex flex-col gap-4 mx-3 md:mx-20 my-4"}>
       <SearchPanel
         query={searchQuery}
         handleClear={() => setSearchQuery("")}
@@ -114,7 +114,7 @@ function Details() {
       />
       {filteredProjects.length > 0 ? null : <NotFound query={searchQuery} />}
       <div className="flex flex-col lg:flex-row gap-3">
-        <div className="flex flex-col gap-4 flex-1">
+        <div className="flex flex-col gap-4 flex-1 lg:h-[390px] overflow-y-auto">
           {filteredProjects
             .sort((a, b) => (a.title > b.title ? 1 : -1))
             .map((p, i) => (
