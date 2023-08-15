@@ -1,7 +1,7 @@
 import InfoCard from "./global-components/InfoCard";
 import Link from "next/link";
-import BarChart from "./projects/components/BarChart";
-import PieChart from "./projects/components/PieChart";
+import BarChart from "../components/BarChart";
+import PieChart from "../components/PieChart";
 
 export default function Home() {
   const cards = [
