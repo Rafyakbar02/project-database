@@ -134,7 +134,7 @@ function Details() {
         {filteredProjects.length > 0 ? (
           <div
             className={
-              "flex order-first overflow-x-auto sm:grid sm:grid-cols-3 lg:order-last lg:flex-col gap-3 pb-2 w-full lg:w-fit lg:justify-start"
+              "flex order-first overflow-x-auto sm:grid sm:grid-cols-3 lg:flex lg:order-last lg:flex-col gap-3 pb-2 w-full lg:w-fit lg:justify-start"
             }
           >
             <InfoCard
