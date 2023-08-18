@@ -134,23 +134,23 @@ function Details() {
         {filteredProjects.length > 0 ? (
           <div
             className={
-              "flex justify-between order-first overflow-x-auto lg:order-last lg:flex-col gap-3 pb-2 w-full lg:w-fit lg:justify-start"
+              "flex order-first overflow-x-auto sm:grid sm:grid-cols-3 lg:order-last lg:flex-col gap-3 pb-2 w-full lg:w-fit lg:justify-start"
             }
           >
             <InfoCard
               value={filteredProjects.length}
               label={`Total Project${filteredProjects.length > 1 ? "s" : ""}`}
-              className={"w-full lg:w-48 lg:flex-shrink-0"}
+              className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
             />
             <InfoCard
               value={formattterCompact.format(totalInvestment)}
               label={"Total Investment"}
-              className={"w-48 md:w-full lg:w-48"}
+              className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
             />
             <InfoCard
               value={formattterCompact.format(totalExposure)}
               label={"Total Exposure"}
-              className={"w-48 md:w-full lg:w-48"}
+              className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
             />
           </div>
         ) : null}
