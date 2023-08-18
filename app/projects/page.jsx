@@ -114,7 +114,7 @@ function Details() {
       />
       {filteredProjects.length > 0 ? null : <NotFound query={searchQuery} />}
       <div className="flex flex-col lg:flex-row gap-3">
-        <div className="flex flex-col gap-4 flex-1 lg:h-[390px] overflow-y-auto">
+        <div className="flex flex-col flex-1 gap-4 pe-3 h-[80vh] lg:overflow-y-scroll pb-20">
           {filteredProjects
             .sort((a, b) => (a.title > b.title ? 1 : -1))
             .map((p, i) => (
@@ -134,23 +134,23 @@ function Details() {
         {filteredProjects.length > 0 ? (
           <div
             className={
-              "flex order-first overflow-x-auto lg:order-last lg:flex-col gap-3"
+              "flex justify-between order-first overflow-x-auto lg:order-last lg:flex-col gap-3 pb-2 w-full lg:w-fit lg:justify-start"
             }
           >
             <InfoCard
               value={filteredProjects.length}
               label={`Total Project${filteredProjects.length > 1 ? "s" : ""}`}
-              className={"lg:w-48 flex-shrink-0"}
+              className={"w-32 md:w-full lg:w-48 flex-shrink-0"}
             />
             <InfoCard
               value={formattterCompact.format(totalInvestment)}
               label={"Total Investment"}
-              className={"w-48"}
+              className={"w-48 md:w-full lg:w-48"}
             />
             <InfoCard
               value={formattterCompact.format(totalExposure)}
               label={"Total Exposure"}
-              className={"w-48"}
+              className={"w-48 md:w-full lg:w-48"}
             />
           </div>
         ) : null}
