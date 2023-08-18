@@ -112,49 +112,52 @@ function Details() {
         resetCheckList={resetCheckList}
         submitFilter={() => filter()}
       />
-      {filteredProjects.length > 0 ? null : <NotFound query={searchQuery} />}
-      <div className="flex flex-col lg:flex-row gap-3">
-        <div className="flex flex-col flex-1 gap-4 lg:pe-3 h-[75vh] lg:overflow-y-scroll pb-10">
-          {filteredProjects
-            .sort((a, b) => (a.title > b.title ? 1 : -1))
-            .map((p, i) => (
-              <ProjectAccordion
-                key={p.id}
-                i={i + 1}
-                id={p.id}
-                title={p.title}
-                division={p.division}
-                totalInvestment={p.totalInvestment}
-                signingDate={p.signingDate}
-                totalExposure={p.totalExposure}
-                effectiveDate={p.effectiveDate}
-              />
-            ))}
-        </div>
-        {filteredProjects.length > 0 ? (
-          <div
-            className={
-              "flex order-first overflow-x-auto sm:grid sm:grid-cols-3 lg:flex lg:order-last lg:flex-col gap-3 pb-2 w-full lg:w-fit lg:justify-start"
-            }
-          >
-            <InfoCard
-              value={filteredProjects.length}
-              label={`Total Project${filteredProjects.length > 1 ? "s" : ""}`}
-              className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
-            />
-            <InfoCard
-              value={formattterCompact.format(totalInvestment)}
-              label={"Total Investment"}
-              className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
-            />
-            <InfoCard
-              value={formattterCompact.format(totalExposure)}
-              label={"Total Exposure"}
-              className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
-            />
+      {filteredProjects.length > 0 ? (
+        <div className="flex flex-col lg:flex-row gap-3">
+          <div className="flex flex-col flex-1 gap-4 lg:pe-3 h-[75vh] lg:overflow-y-scroll pb-10">
+            {filteredProjects
+              .sort((a, b) => (a.title > b.title ? 1 : -1))
+              .map((p, i) => (
+                <ProjectAccordion
+                  key={p.id}
+                  i={i + 1}
+                  id={p.id}
+                  title={p.title}
+                  division={p.division}
+                  totalInvestment={p.totalInvestment}
+                  signingDate={p.signingDate}
+                  totalExposure={p.totalExposure}
+                  effectiveDate={p.effectiveDate}
+                />
+              ))}
           </div>
-        ) : null}
-      </div>
+          {filteredProjects.length > 0 ? (
+            <div
+              className={
+                "flex order-first overflow-x-auto sm:grid sm:grid-cols-3 lg:flex lg:order-last lg:flex-col gap-3 pb-2 w-full lg:w-fit lg:justify-start"
+              }
+            >
+              <InfoCard
+                value={filteredProjects.length}
+                label={`Total Project${filteredProjects.length > 1 ? "s" : ""}`}
+                className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
+              />
+              <InfoCard
+                value={formattterCompact.format(totalInvestment)}
+                label={"Total Investment"}
+                className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
+              />
+              <InfoCard
+                value={formattterCompact.format(totalExposure)}
+                label={"Total Exposure"}
+                className={"w-48 sm:w-full lg:w-48 flex-shrink-0"}
+              />
+            </div>
+          ) : null}
+        </div>
+      ) : (
+        <NotFound query={searchQuery} />
+      )}
     </div>
   );
 }
