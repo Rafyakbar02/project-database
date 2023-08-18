@@ -114,7 +114,7 @@ function Details() {
       />
       {filteredProjects.length > 0 ? null : <NotFound query={searchQuery} />}
       <div className="flex flex-col lg:flex-row gap-3">
-        <div className="flex flex-col flex-1 gap-4 pe-3 h-[75vh] lg:overflow-y-scroll pb-10">
+        <div className="flex flex-col flex-1 gap-4 lg:pe-3 h-[75vh] lg:overflow-y-scroll pb-10">
           {filteredProjects
             .sort((a, b) => (a.title > b.title ? 1 : -1))
             .map((p, i) => (
@@ -140,7 +140,7 @@ function Details() {
             <InfoCard
               value={filteredProjects.length}
               label={`Total Project${filteredProjects.length > 1 ? "s" : ""}`}
-              className={"w-32 md:w-full lg:w-48 flex-shrink-0"}
+              className={"w-full lg:w-48 lg:flex-shrink-0"}
             />
             <InfoCard
               value={formattterCompact.format(totalInvestment)}
